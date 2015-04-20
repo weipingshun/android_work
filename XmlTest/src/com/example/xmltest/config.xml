@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  1.程序初始化时，加载此配置文件，赋给参数默认值
+  2.程序初始化之后，用户可以进行部分参数的修改，覆盖当前值。
+ -->
+<voice>
+	<common>
+	    <!-- 应用者，SDK会提供给不同的应用者(渠道,例如：内部业务(0)，语音开放平台(1)、移动开放平台(2)) -->
+		<applicator>0</applicator>
+	</common>
+	
+	<recorder>
+	    <!-- 录音机是否在主线程中启动 -->
+	    <mainthread>true</mainthread>
+	</recorder>
+	
+	<rmzeroer>
+	    <!-- 是否使用去零模块 -->
+	    <isrmzero>true</isrmzero>
+	</rmzeroer>
+	
+	<vader>
+	    <!-- 是否使用VAD模块 -->
+	    <isvad>true</isvad>
+	    <!-- 是否自动结束 -->
+		<autoend>true</autoend>
+		<!--  语音中间允许的最大静音长度，中间静音长度大于阈值，认为语音到达尾点 -->
+		<maxmiddlesil>1.0</maxmiddlesil>
+		<!-- 语音前端允许的最大静音长度，前端静音长度大于阈值，认为没有说话 -->
+		<maxbeginsil>3.0</maxbeginsil>
+		<!-- 语音的最小长度，一段语音长度小于此阈值，认为是静音 -->
+		<minmiddlespeech>0.2</minmiddlespeech>
+		<!-- 语音前面保留的长度 -->
+		<leader>0.0</leader>
+		<!-- 语音后面保留的长度 -->
+		<trailer>0.0</trailer>
+	</vader>
+	
+	<speexer>
+	    <!-- 是否使用SPEEX模块 -->
+	    <isspeex>true</isspeex>
+	    <!-- 所有的情况都用默认情况初始化 -->
+	    <default>
+	        <mode>1</mode>
+	        <quality>8</quality>
+	    </default>
+	    <!-- 2G环境配置 示例： -->
+	    <net2g>
+	        <quality>1</quality>
+	    </net2g>
+	
+	</speexer>
+	
+	<uploader>
+	    <isupload>true</isupload>
+	    <default>
+	        <uploadthreadnum>4</uploadthreadnum>
+	        <connecttimeout>5</connecttimeout>
+	        <readtimeout>20</readtimeout>
+	        <maxretrynum>2</maxretrynum>
+	        <!-- 每个连接的时间间隔(单位：秒) -->
+	        <interval>0.26</interval>
+	    </default>
+	    <!-- 2G网络环境配置  -->
+	    <net2g>
+	        <interval>1.0</interval>
+	    </net2g>
+	</uploader>
+</voice>
